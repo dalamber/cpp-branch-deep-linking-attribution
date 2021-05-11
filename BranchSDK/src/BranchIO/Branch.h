@@ -139,6 +139,15 @@ class BRANCHIO_DLL_EXPORT Branch {
     void logout(IRequestCallback *callback);
 
     /**
+     * Adds a key/value metadata pair to all requests. Values are persistent between
+     * app instances.
+     *
+     * @param key a metadata key to use
+     * @param value a metadata value to use
+     */
+    void setRequestMetadata(const String& key, const String& value);
+
+    /**
      * Get the current developer identity as a UTF-8 string
      * @return the current developer identity (blank if none)
      */

@@ -18,36 +18,38 @@ class BRANCHIO_DLL_EXPORT SessionInfo : public PropertyManager {
      */
     SessionInfo();
 
-    virtual ~SessionInfo();
+    ~SessionInfo();
 
     /**
      * Set the Session Fingerprint ID.
      * @param deviceFingerprint as issued by the Branch server
      * @return This object for chaining builder methods
      */
-    virtual SessionInfo& setFingerprintId(const std::string &deviceFingerprint);
+    SessionInfo& setFingerprintId(const std::string &deviceFingerprint);
 
     /**
      * Set the Session Identity Id.
      * @param identity as issued by the Branch server
      * @return This object for chaining builder methods
      */
-    virtual SessionInfo& setIdentityId(const std::string &identity);
+    SessionInfo& setIdentityId(const std::string &identity);
 
     /**
      * Set the Session Id.
      * @param sessionId as issued by the Branch server
      * @return This object for chaining builder methods
      */
-    virtual SessionInfo& setSessionId(const std::string &sessionId);
+    SessionInfo& setSessionId(const std::string &sessionId);
+
+    SessionInfo& setMetadata(const JSONObject& metadata);
 
     /**
      * @return true if there is a current session.
      */
-    virtual bool hasSessionId() const;
+    bool hasSessionId() const;
 
  private:
-    virtual SessionInfo& doAddProperty(const char *name, const std::string &value);
+    SessionInfo& doAddProperty(const char *name, const std::string &value);
 };
 
 constexpr const char* const SESSIONSTORAGE = "session";

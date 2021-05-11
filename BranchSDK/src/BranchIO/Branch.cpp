@@ -334,4 +334,27 @@ wstring Branch::getBranchKeyW() const {
     return String(getBranchKey()).wstr();
 }
 
+void
+Branch::setRequestMetadata(const String& key, const String& value) {
+    IStorage& storage(Storage::instance());
+
+    /*
+     * Merge into any stored metadata, overwriting any existing value for the same key.
+     */
+    static const char* const metadataKey = "session.metadata";
+    JSONObject metadata;
+    if (storage.has(metadataKey)) {
+        try {
+            metadata = JSONObject::parse(storage.getString(metadataKey));
+        }
+        catch (...) {
+            // Ignore any stored metadata if we can't parse it
+        }
+    }
+
+    metadata.set(key.str(), value.str());
+
+    getSessionInfo().setMetadata(metadata);
+}
+
 }  // namespace BranchIO

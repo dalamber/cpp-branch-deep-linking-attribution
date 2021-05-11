@@ -52,6 +52,8 @@ const char *Defines::JSONKEY_SESSION_IDENTITY = "identity_id";
 const char *Defines::JSONKEY_TRACKING_DISABLED = "tracking_disabled";
 const char* Defines::JSONKEY_WINDOWS_ADVERTISING_ID = "windows_advertising_id";
 const char* Defines::JSONKEY_LINK_IDENTIFIER = "link_identifier";
+const char* Defines::JSONKEY_METADATA = "metadata";
+
 // Branch Url Path
 const char *Defines::BASE_PATH_V2 = "https://api2.branch.io/";
 

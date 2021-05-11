@@ -115,6 +115,12 @@ BranchOperations::initBranch(const std::wstring& branchKey, const std::wstring& 
     branch = Branch::create(branchKey, &appInfo);
 
     /*
+     * Add metadata keys to be sent with every request (before calling openSession).
+     */
+    branch->setRequestMetadata("key1", "value1");
+    branch->setRequestMetadata(L"key2", L"value2");
+
+    /*
      * The Windows Advertising Identifier requires a UWP dependency and is not ordinarily available
      * for Win32. If you have it available, you can pass it here.
      */

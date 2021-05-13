@@ -19,6 +19,14 @@ jobs:
           Invoke-WebRequest -Uri https://doxygen.nl/files/doxygen-1.9.1.windows.x64.bin.zip -OutFile doxygen.zip
           Expand-Archive -LiteralPath doxygen.zip
 
+      - name: Install Wix extension for Visual Studio
+        run: code --install-extension WixToolset.VisualStudioExtension.Dev16
+
+      - name: Install Wix Toolset
+        run: |
+          Invoke-WebRequest -Uri https://github.com/wixtoolset/wix3/releases/download/wix3112rtm/wix311-binaries.zip -OutFile wix.zip
+          Expand-Archive -LiteralPath wix.zip
+
       # Conan maintains its own cache in ~/.conan/data. Poco takes a long time to build from source. If
       # the version and options have not changed, Conan will not build Poco if it finds it in cache. It
       # will update the cache any time it needs to rebuild Poco. This should only happen when the

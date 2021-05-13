@@ -22,9 +22,10 @@ jobs:
       - name: Install Wix extension for Visual Studio
         run: |
           Invoke-WebRequest -Uri https://github.com/wixtoolset/VisualStudioExtension/releases/download/v1.0.0.4/Votive2019.vsix -OutFile Votive2019.vsix
-          VSIXInstaller /quiet Votive2019.vsix
+          C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\VSIXInstaller /quiet Votive2019.vsix
 
       - name: Install Wix Toolset
+        working-directory: ${{env.GITHUB_WORKSPACE}}
         run: |
           Invoke-WebRequest -Uri https://github.com/wixtoolset/wix3/releases/download/wix3112rtm/wix311-binaries.zip -OutFile wix.zip
           Expand-Archive -LiteralPath wix.zip

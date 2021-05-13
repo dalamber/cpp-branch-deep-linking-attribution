@@ -21,8 +21,8 @@ jobs:
 
       - name: Install Wix extension for Visual Studio
         run: |
-          Invoke-WebRequest -Uri https://marketplace.visualstudio.com/_apis/public/gallery/publishers/WixToolset/vsextensions/WixToolsetVisualStudio2019Extension/1.0.0.4/vspackage -OutFile wix-extension.vsix
-          VSIXInstaller /quiet wix-extension.vsix
+          Invoke-WebRequest -Uri https://github.com/wixtoolset/VisualStudioExtension/releases/download/v1.0.0.4/Votive2019.vsix -OutFile Votive2019.vsix
+          VSIXInstaller /quiet Votive2019.vsix
 
       - name: Install Wix Toolset
         run: |

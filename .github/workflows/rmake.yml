@@ -20,7 +20,9 @@ jobs:
           Expand-Archive -LiteralPath doxygen.zip
 
       - name: Install Wix extension for Visual Studio
-        run: code --install-extension WixToolset.VisualStudioExtension.Dev16
+        run: |
+          Invoke-WebRequest -Uri https://marketplace.visualstudio.com/_apis/public/gallery/publishers/WixToolset/vsextensions/WixToolsetVisualStudio2019Extension/1.0.0.4/vspackage -OutFile wix-extension.vsix
+          VSIXInstaller /quiet wix-extension.vsix
 
       - name: Install Wix Toolset
         run: |

@@ -37,7 +37,7 @@ add_library(BranchIO ${BRANCH_SOURCE})
 target_include_directories(BranchIO PRIVATE ${CONAN_INCLUDE_DIRS})
 
 # Link the shared lib against Conan deps (ignored when BUILD_SHARED_LIBS=false)
-target_link_libraries(BranchIO CONAN_PKG::Poco)
+target_link_libraries(BranchIO CONAN_PKG::poco)
 
 # --------
 # Settings
@@ -74,7 +74,7 @@ file(GLOB TEST ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
 # DLL. We could always build static, at least on Windows, even when building
 # shared libraries, but for now it seems best to build against source.
 add_executable(unit_tests ${TEST} ${BRANCH_SOURCE})
-target_link_libraries(unit_tests CONAN_PKG::Poco CONAN_PKG::OpenSSL CONAN_PKG::gtest)
+target_link_libraries(unit_tests CONAN_PKG::poco CONAN_PKG::openssl CONAN_PKG::gtest)
 
 # Generates JUnit-style output in test_detail.xml, e.g. build/Debug/test_detail.xml.
 add_test(NAME UnitTests COMMAND unit_tests --gtest_output=xml)

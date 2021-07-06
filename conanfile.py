@@ -42,7 +42,7 @@ class BranchioConan(ConanFile):
     # Conan. Conan recently introduced lockfiles, which may be useful for this purpose
     # as well. For now, this is consistent with transitive dependencies in Branch Maven
     # packages, to avoid version drift.
-    requires = "Poco/1.10.1@pocoproject/stable"
+    requires = "poco/1.10.1@pocoproject/stable"
     build_requires = "gtest/1.8.1@bincrafters/stable"
 
     def validate(self):
